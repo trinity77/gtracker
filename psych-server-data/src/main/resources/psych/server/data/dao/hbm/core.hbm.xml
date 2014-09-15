@@ -5,8 +5,12 @@
 
 <!-- ENUMS -->
 
-    <typedef name="UserStatusType" class="psych.server.data.dao.EnumUserType">
+    <typedef name="UserStatusType" class="psych.server.data.dao.HibernateEnum">
         <param name="enumClassName">psych.server.data.dao.UserStatusType</param>
+    </typedef>
+
+    <typedef name="GoalStatusType" class="psych.server.data.dao.HibernateEnum">
+        <param name="enumClassName">psych.server.data.dao.GoalStatusType</param>
     </typedef>
 
 <!-- User Object -->
@@ -88,7 +92,7 @@
 
   
   <!-- Goal Object -->
-    <class name="GoalDTO" table="ct_property_cat">
+    <class name="GoalDTO" table="goal">
         <id name="goalID" type="string" column="goal_id" length="36">
         	<generator class="org.hibernate.id.UUIDGenerator" />
         </id>
@@ -96,10 +100,13 @@
         <property name="goalDescr" type="string" column="goal_descr" length="500" not-null="false" />
         <!-- Enum or FK for score type -->
         <property name="scoreType" type="string" column="score_type" length="500" not-null="true" />
-        <!-- Consider Goal Status ARCHIVE/ACTIVE/DELETED ENUM -->
-        <property name="goalStatus" type="boolean" column="goal_status" not-null="false"/>
+        <property name="goalStatus" type="GoalStatusType" column="goal_status" not-null="false"/>
+        <property name="defaultOrder" type="java.lang.Integer" column="default_order" not-null="true"/>
         <property name="addDt" type="timestamp" column="add_dt"/>
 		<property name="lastUpdateDt" type="timestamp" column="last_update_dt"/>
+		
+        <!-- Relationship to Icon table-->
+        <many-to-one name="goalIconDTO" column="goal_icon_id" class="GoalIconDTO" not-null="false" />
 		
 		<!-- Relationship to User table-->
 		<many-to-one name="userDTO" column="user_id" class="UserDTO" not-null="true" />
@@ -120,5 +127,10 @@
 		<many-to-one name="goalDTO" column="goal_id" class="GoalDTO" not-null="true" />
     </class> 
   
+    <!-- Properties -->
+    <class name="GoalIconDTO" table="goal_icon">
+        <id name="iconID" type="string" column="icon_id" length="36" />
+        <property name="iconLink" type="string" column="icon_link" length="1000" not-null="false" />
+    </class>
 	
 </hibernate-mapping>

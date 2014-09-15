@@ -1,6 +1,6 @@
 package psych.server.data.dao.dto;
 
-// Generated Sep 13, 2014 3:10:27 PM by Hibernate Tools 3.4.0.CR1
+// Generated Sep 14, 2014 9:06:33 PM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -10,8 +10,8 @@ import java.util.Date;
 public class ScoreDTO implements java.io.Serializable {
 
 	private String scoreID;
-	private String scoreStatus;
-	private Integer scoreCnt;
+	private String scoreValStr;
+	private Integer scoreValInt;
 	private String scoreNote;
 	private Date addDt;
 	private Date lastUpdateDt;
@@ -24,10 +24,10 @@ public class ScoreDTO implements java.io.Serializable {
 		this.goalDTO = goalDTO;
 	}
 
-	public ScoreDTO(String scoreStatus, Integer scoreCnt, String scoreNote,
+	public ScoreDTO(String scoreValStr, Integer scoreValInt, String scoreNote,
 			Date addDt, Date lastUpdateDt, GoalDTO goalDTO) {
-		this.scoreStatus = scoreStatus;
-		this.scoreCnt = scoreCnt;
+		this.scoreValStr = scoreValStr;
+		this.scoreValInt = scoreValInt;
 		this.scoreNote = scoreNote;
 		this.addDt = addDt;
 		this.lastUpdateDt = lastUpdateDt;
@@ -42,20 +42,20 @@ public class ScoreDTO implements java.io.Serializable {
 		this.scoreID = scoreID;
 	}
 
-	public String getScoreStatus() {
-		return this.scoreStatus;
+	public String getScoreValStr() {
+		return this.scoreValStr;
 	}
 
-	public void setScoreStatus(String scoreStatus) {
-		this.scoreStatus = scoreStatus;
+	public void setScoreValStr(String scoreValStr) {
+		this.scoreValStr = scoreValStr;
 	}
 
-	public Integer getScoreCnt() {
-		return this.scoreCnt;
+	public Integer getScoreValInt() {
+		return this.scoreValInt;
 	}
 
-	public void setScoreCnt(Integer scoreCnt) {
-		this.scoreCnt = scoreCnt;
+	public void setScoreValInt(Integer scoreValInt) {
+		this.scoreValInt = scoreValInt;
 	}
 
 	public String getScoreNote() {

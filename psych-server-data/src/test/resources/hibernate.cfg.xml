@@ -7,13 +7,6 @@
 	<session-factory>
 	    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <!--  Local -->
-        <!-- 
-        <property name="connection.username">root</property>
-		<property name="connection.password">fifa98</property>
-		<property name="connection.url">jdbc:mysql://localhost/rise</property>
-		 -->
-		<!-- Production -->
-		<!--  -->
 		<property name="connection.username">root</property>
 		<property name="connection.password">fifa98</property>
 		<property name="connection.url">jdbc:mysql://localhost/psych</property>

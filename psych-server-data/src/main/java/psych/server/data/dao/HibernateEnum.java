@@ -21,7 +21,7 @@ import org.hibernate.usertype.UserType;
  * 
  * @author Toby Boyd
  */
-public class EnumUserType implements UserType, ParameterizedType {
+public class HibernateEnum implements UserType, ParameterizedType {
 
 	@SuppressWarnings("rawtypes")
 	private Class clazz = null;
